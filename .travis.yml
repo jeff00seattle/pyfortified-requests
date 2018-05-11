@@ -1,0 +1,14 @@
+language: python
+python:
+- '3.6.0'
+install:
+- pip install -r requirements.txt
+- pip install -e .
+- pip install pyflakes
+- pip install coveralls
+before_script:
+- make pyflakes
+script:
+- make run-examples
+after_success:
+  coveralls
