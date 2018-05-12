@@ -229,8 +229,31 @@ run-examples: requirements
 	@$(PYTHON3) examples/example_requests_countries_stdout_color.py
 	@echo "======================================================"
 
-coverage-percent:
-	py.test --verbose --cov=requests_fortified tests
+pypitest-register:
+	@echo "======================================================"
+	@echo pypitest-register $(PACKAGE)
+	@echo "======================================================"
+	$(PYTHON3) $(SETUP_FILE) register -r pypitest
+
+pypitest-upload: clean
+	@echo "======================================================"
+	@echo pypitest-upload $(PACKAGE)
+	@echo "======================================================"
+	$(PYTHON3) $(SETUP_FILE) sdist upload -r pypitest
+
+pypi-register:
+	@echo "======================================================"
+	@echo pypi-register $(PACKAGE)
+	@echo "======================================================"
+	$(PYTHON3) $(SETUP_FILE) register -r pypi
+
+pypi-upload: clean
+	@echo "======================================================"
+	@echo pypi-upload $(PACKAGE)
+	@echo "======================================================"
+	$(PYTHON3) -m pip install --upgrade -r requirements.txt
+	$(PYTHON3) $(SETUP_FILE) sdist bdist_wheel upload -r pypi
+	ls -al ./dist/$(PACKAGE_PREFIX_WILDCARD)
 
 list:
 	cat Makefile | grep "^[a-z]" | awk '{print $$1}' | sed "s/://g" | sort

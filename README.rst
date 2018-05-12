@@ -6,7 +6,24 @@ requests-fortified
 **Work In Progress**
 
 Extension of Python HTTP `requests <https://pypi.python.org/pypi/requests>`_ with verbose
-logging using `logging-fortified <https://pypi.python.org/pypi/logging-fortified>`_.
+logging using `logging-fortified <https://pypi.python.org/pypi/logging-fortified>`_, and robust handling for
+Downloading files containing JSON, CSV, and XML data formats and Streaming.
+
+Important Note
+^^^^^^^^^^^^^^
+
+This Python project is a refactoring of `requests-mv-integration <https://pypi.org/project/requests-mv-integrations/>`_
+for the purpose of general usage intent.
+
+Work In Progress
+^^^^^^^^^^^^^^^^
+
+The following still needs to be performed for this Python project:
+
+- Unit-testing: This project will be switching over to using Python native Unit testing framework `unittest <https://docs.python.org/3/library/unittest.html>`_.
+- More concise documentation is required.
+- Travis CI
+- Badges
 
 
 Badges
@@ -19,8 +36,6 @@ Badges
 
     * - info
       - |license|
-    * - tests
-      - |travis|
     * - package
       - |version| |supported-versions|
 
@@ -28,10 +43,6 @@ Badges
 .. |license| image:: https://img.shields.io/badge/License-MIT-yellow.svg
     :alt: License Status
     :target: https://opensource.org/licenses/MIT
-
-.. |travis| image:: https://travis-ci.org/jeff00seattle/requests-fortified.svg?branch=master
-    :alt: Travis-CI Build Status
-    :target: https://travis-ci.org/jeff00seattle/requests-fortified
 
 .. |version| image:: https://img.shields.io/pypi/v/requests_fortified.svg?style=flat
     :alt: PyPI Package latest release
