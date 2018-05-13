@@ -1,6 +1,6 @@
 .. -*- mode: rst -*-
 
-requests-fortified
+pyfortified-requests
 ------------------------
 
 **Work In Progress**
