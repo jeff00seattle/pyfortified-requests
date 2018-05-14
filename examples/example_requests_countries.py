@@ -11,7 +11,7 @@ from pyfortified_requests import (
 from pyfortified_requests.support import (
     HEADER_CONTENT_TYPE_APP_JSON
 )
-from logging_fortified import (
+from pyfortified_logging import (
     LoggingFormat,
     LoggingOutput
 )
