@@ -1,9 +1,7 @@
 .. -*- mode: rst -*-
 
 pyfortified-requests
-------------------------
-
-**Work In Progress**
+--------------------
 
 Extension of Python HTTP `requests <https://pypi.python.org/pypi/requests>`_ with verbose
 logging using `logging-fortified <https://pypi.python.org/pypi/logging-fortified>`_, and robust handling for
@@ -29,26 +27,6 @@ The following still needs to be performed for this Python project:
 Badges
 ------
 
-.. start-badges
-
-.. list-table::
-    :stub-columns: 1
-
-
-.. |license| image:: https://img.shields.io/badge/License-MIT-yellow.svg
-    :alt: License Status
-    :target: https://opensource.org/licenses/MIT
-
-.. |version| image:: https://img.shields.io/pypi/v/pyfortified_requests.svg?style=flat
-    :alt: PyPI Package latest release
-    :target: https://pypi.python.org/pypi/pyfortified_requests
-
-.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/pyfortified-requests.svg?style=flat
-    :alt: Supported versions
-    :target: https://pypi.python.org/pypi/pyfortified-requests
-
-.. end-badges
-
 
 Install
 -------
@@ -71,7 +49,7 @@ Usage
 .. code-block:: python
 
     URL_REST_COUNTRIES = \
-        'https://restcountries.eu/rest/v2/all'
+        'http://api.population.io/1.0/countries'
 
     from pyfortified_requests import (
         RequestsFortifiedDownload,
@@ -98,7 +76,7 @@ Example
 
 .. code-block:: bash
 
-    $ python3 examples/example_request.py
+    $ make run-example-countries
 
     ======================================================
     run-examples pyfortified-requests
@@ -107,92 +85,63 @@ Example
     ======================================================
     'Logger file path: ./tmp/log_1526043820.json'
     [
-        '{"asctime": "2018-05-11 06:03:26 -0700", "levelname": "NOTE", "name": "pyfortified_requests", "version": "0.1.0", "message": "debug"}\n',
-        '{"asctime": "2018-05-11 06:03:26 -0700", "levelname": "INFO", "name": "pyfortified_requests", "version": "0.1.0", "message": "START"}\n',
-        '{"asctime": "2018-05-11 06:03:26 -0700", "levelname": "DEBUG", "name": "pyfortified_requests", "version": "0.1.0", "message": "REST Countries: Start"}\n',
-        '{"asctime": "2018-05-11 06:03:26 -0700", "levelname": "DEBUG", "name": "pyfortified_requests", "version": "0.1.0", "message": "REST Countries: Start: Details", "Disk:": {"path": "/", "total": "232.62 GB", "used": "134.44 GB", "free": "97.94 GB", "percent": 57}, "Mem": {"total": "16.00 GB", "used": "12.50 GB", "free": "147.59 KB", "shared": "0 B", "buffers": "0 B", "cached": "0 B"}, "allow_redirects": true, "build_request_curl": true, "cookie_payload": null, "request_auth": null, "request_cert": null, "request_data": null, "request_headers": {"Content-Type": "application/json", "User-Agent": "(pyfortified-requests/0.1.0, Python/3.6.5)"}, "request_json": null, "request_label": "REST Countries", "request_method": "GET", "request_params": null, "request_retry": {"timeout": 60, "tries": 3, "delay": 10}, "request_url": "https://restcountries.eu/rest/v2/all", "stream": false, "timeout": null, "verify": true}\n',
-        '{"asctime": "2018-05-11 06:03:26 -0700", "levelname": "DEBUG", "name": "pyfortified_requests", "version": "0.1.0", "message": "REST Countries: Start", "request_label": "REST Countries", "request_retry_excps": ["ConnectTimeout", "ReadTimeout", "Timeout"], "request_retry_http_status_codes": [500, 502, 503, 504, 429], "timeout": null}\n',
-        '{"asctime": "2018-05-11 06:03:26 -0700", "levelname": "DEBUG", "name": "pyfortified_requests", "version": "0.1.0", "message": "REST Countries: Attempt", "attempts": 1, "delay": 10, "request_label": "REST Countries", "request_url": "https://restcountries.eu/rest/v2/all", "timeout": 60, "tries": 3}\n',
-        '{"asctime": "2018-05-11 06:03:26 -0700", "levelname": "DEBUG", "name": "pyfortified_requests", "version": "0.1.0", "message": "REST Countries: Session: Details", "cookie_payload": {}, "request_label": "REST Countries"}\n',
-        '{"asctime": "2018-05-11 06:03:26 -0700", "levelname": "DEBUG", "name": "pyfortified_requests", "version": "0.1.0", "message": "REST Countries: Details", "request_data": "", "request_headers": {"Content-Type": "application/json", "User-Agent": "(pyfortified-requests/0.1.0, Python/3.6.5)"}, "request_label": "REST Countries", "request_method": "GET", "request_params": {}, "request_url": "https://restcountries.eu/rest/v2/all", "timeout": 60}\n',
-        '{"asctime": "2018-05-11 06:03:26 -0700", "levelname": "NOTE", "name": "pyfortified_requests", "version": "0.1.0", "message": "REST Countries: Curl", "request_curl": "curl --verbose -X GET -H \'Content-Type: application/json\' -H \'User-Agent: (pyfortified-requests/0.1.0, Python/3.6.5)\' --connect-timeout 60 -L \'https://restcountries.eu/rest/v2/all\'", "request_label": "REST Countries", "request_method": "GET"}\n',
-        '{"asctime": "2018-05-11 06:03:26 -0700", "levelname": "DEBUG", "name": "pyfortified_requests.support.requests_session_client", "version": "0.1.0", "message": "Session Request: Details", "allow_redirects": true, "headers": {"Content-Type": "application/json", "User-Agent": "(pyfortified-requests/0.1.0, Python/3.6.5)"}, "method": "GET", "timeout": 60, "url": "https://restcountries.eu/rest/v2/all", "verify": true}\n',
-        '{"asctime": "2018-05-11 06:03:27 -0700", "levelname": "DEBUG", "name": "pyfortified_requests", "version": "0.1.0", "message": "REST Countries: Response: Details", "http_status_code": 200, "http_status_desc": "Request fulfilled, document follows", "http_status_type": "Successful", "response_headers": {"Date": "Fri, 11 May 2018 13:03:27 GMT", "Content-Type": "application/json;charset=utf-8", "Transfer-Encoding": "chunked", "Connection": "keep-alive", "Set-Cookie": "__cfduid=d46030914d4b01044c167b67bbca43b951526043807; expires=Sat, 11-May-19 13:03:27 GMT; path=/; domain=.restcountries.eu; HttpOnly", "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET", "Access-Control-Allow-Headers": "Accept, X-Requested-With", "Cache-Control": "public, max-age=86400", "Expect-CT": "max-age=604800, report-uri=\\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\\"", "Server": "cloudflare", "CF-RAY": "4194d881fc146bd4-SJC", "Content-Encoding": "gzip"}}\n',
-        '{"asctime": "2018-05-11 06:03:27 -0700", "levelname": "DEBUG", "name": "pyfortified_requests", "version": "0.1.0", "message": "REST Countries: Cookie Payload", "cookie_payload": {"__cfduid": "d46030914d4b01044c167b67bbca43b951526043807"}, "request_label": "REST Countries"}\n',
-        '{"asctime": "2018-05-11 06:03:27 -0700", "levelname": "DEBUG", "name": "pyfortified_requests", "version": "0.1.0", "message": "REST Countries: Try Send Request: Is Return Response: Checking", "request_url": "https://restcountries.eu/rest/v2/all"}\n',
-        '{"asctime": "2018-05-11 06:03:27 -0700", "levelname": "DEBUG", "name": "pyfortified_requests", "version": "0.1.0", "message": "REST Countries: Try Send Request: Is Return Response: Valid", "request_url": "https://restcountries.eu/rest/v2/all"}\n',
-        '{"asctime": "2018-05-11 06:03:27 -0700", "levelname": "INFO", "name": "pyfortified_requests", "version": "0.1.0", "message": "REST Countries: Finished", "request_time_msecs": 569}\n',
-        '{"asctime": "2018-05-11 06:03:27 -0700", "levelname": "DEBUG", "name": "pyfortified_requests", "version": "0.1.0", "message": "REST Countries: Usage", "Disk:": {"path": "/", "total": "232.62 GB", "used": "134.44 GB", "free": "97.94 GB", "percent": 57}, "Mem": {"total": "16.00 GB", "used": "12.50 GB", "free": "145.89 KB", "shared": "0 B", "buffers": "0 B", "cached": "0 B"}}\n',
-        '{"asctime": "2018-05-11 06:03:27 -0700", "levelname": "INFO", "name": "pyfortified_requests", "version": "0.1.0", "message": "COMPLETED", "connection": "<requests.adapters.HTTPAdapter object at 0x1043b11d0>", "cookies": "<RequestsCookieJar[<Cookie __cfduid=d46030914d4b01044c167b67bbca43b951526043807 for .restcountries.eu/>]>", "elapsed": "0:00:00.286022", "encoding": "utf-8", "headers": "{\'Date\': \'Fri, 11 May 2018 13:03:27 GMT\', \'Content-Type\': \'application/json;charset=utf-8\', \'Transfer-Encoding\': \'chunked\', \'Connection\': \'keep-alive\', \'Set-Cookie\': \'__cfduid=d46030914d4b01044c167b67bbca43b951526043807; expires=Sat, 11-May-19 13:03:27 GMT; path=/; domain=.restcountries.eu; HttpOnly\', \'Access-Control-Allow-Origin\': \'*\', \'Access-Control-Allow-Methods\': \'GET\', \'Access-Control-Allow-Headers\': \'Accept, X-Requested-With\', \'Cache-Control\': \'public, max-age=86400\', \'Expect-CT\': \'max-age=604800, report-uri=\\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\\"\', \'Server\': \'cloudflare\', \'CF-RAY\': \'4194d881fc146bd4-SJC\', \'Content-Encoding\': \'gzip\'}", "history": [], "raw": "<urllib3.response.HTTPResponse object at 0x1043b1dd8>", "reason": "", "request": "<PreparedRequest [GET]>", "status_code": 200, "url": "https://restcountries.eu/rest/v2/all"}\n',
+        '{"asctime": "2018-05-14 10:40:54 -0700", "levelname": "NOTE", "name": "pyfortified_requests", "version": "0.3.3", "message": "debug"}\n',
+        '{"asctime": "2018-05-14 10:40:55 -0700", "levelname": "INFO", "name": "pyfortified_requests", "version": "0.3.3", "message": "START"}\n',
+        '{"asctime": "2018-05-14 10:40:55 -0700", "levelname": "DEBUG", "name": "pyfortified_requests", "version": "0.3.3", "message": "REST Countries: Start"}\n',
+        '{"asctime": "2018-05-14 10:40:55 -0700", "levelname": "DEBUG", "name": "pyfortified_requests", "version": "0.3.3", "message": "REST Countries: Start: Details", "Disk:": {"free": "91.54 GB", "percent": 60, "total": "232.62 GB", "path": "/", "used": "140.84 GB"}, "Mem": {"free": "133.81 KB", "cached": "0 B", "total": "16.00 GB", "used": "13.19 GB", "shared": "0 B", "buffers": "0 B"}, "allow_redirects": true, "build_request_curl": true, "cookie_payload": null, "request_auth": null, "request_cert": null, "request_data": null, "request_headers": {"Content-Type": "application/json", "User-Agent": "(pyfortified-requests/0.3.3, Python/3.5.4)"}, "request_json": null, "request_label": "REST Countries", "request_method": "GET", "request_params": null, "request_retry": {"tries": 3, "delay": 10, "timeout": 60}, "request_url": "http://api.population.io/1.0/countries", "stream": false, "timeout": null, "verify": true}\n',
+        '{"asctime": "2018-05-14 10:40:55 -0700", "levelname": "DEBUG", "name": "pyfortified_requests", "version": "0.3.3", "message": "REST Countries: Start", "request_label": "REST Countries", "request_retry_excps": ["ConnectTimeout", "ReadTimeout", "Timeout"], "request_retry_http_status_codes": [500, 502, 503, 504, 429], "timeout": null}\n',
+        '{"asctime": "2018-05-14 10:40:55 -0700", "levelname": "DEBUG", "name": "pyfortified_requests", "version": "0.3.3", "message": "REST Countries: Attempt", "attempts": 1, "delay": 10, "request_label": "REST Countries", "request_url": "http://api.population.io/1.0/countries", "timeout": 60, "tries": 3}\n',
+        '{"asctime": "2018-05-14 10:40:55 -0700", "levelname": "DEBUG", "name": "pyfortified_requests", "version": "0.3.3", "message": "REST Countries: Session: Details", "cookie_payload": {}, "request_label": "REST Countries"}\n',
+        '{"asctime": "2018-05-14 10:40:55 -0700", "levelname": "DEBUG", "name": "pyfortified_requests", "version": "0.3.3", "message": "REST Countries: Details", "request_data": "", "request_headers": {"Content-Type": "application/json", "User-Agent": "(pyfortified-requests/0.3.3, Python/3.5.4)"}, "request_label": "REST Countries", "request_method": "GET", "request_params": {}, "request_url": "http://api.population.io/1.0/countries", "timeout": 60}\n',
+        '{"asctime": "2018-05-14 10:40:55 -0700", "levelname": "NOTE", "name": "pyfortified_requests", "version": "0.3.3", "message": "REST Countries: Curl", "request_curl": "curl --verbose -X GET -H \'Content-Type: application/json\' -H \'User-Agent: (pyfortified-requests/0.3.3, Python/3.5.4)\' --connect-timeout 60 -L \'http://api.population.io/1.0/countries\'", "request_label": "REST Countries", "request_method": "GET"}\n',
+        '{"asctime": "2018-05-14 10:40:55 -0700", "levelname": "DEBUG", "name": "pyfortified_requests.support.requests_session_client", "version": "0.3.3", "message": "Session Request: Details", "allow_redirects": true, "headers": {"Content-Type": "application/json", "User-Agent": "(pyfortified-requests/0.3.3, Python/3.5.4)"}, "method": "GET", "timeout": 60, "url": "http://api.population.io/1.0/countries", "verify": true}\n',
+        '{"asctime": "2018-05-14 10:40:55 -0700", "levelname": "DEBUG", "name": "pyfortified_requests", "version": "0.3.3", "message": "REST Countries: Response: Details", "http_status_code": 200, "http_status_desc": "Request fulfilled, document follows", "http_status_type": "Successful", "response_headers": {"Vary": "Accept", "Allow": "OPTIONS, GET", "Cache-Control": "max-age=3600", "Via": "1.1 7bfcc2251021d9dc94a87ff179d69731.cloudfront.net (CloudFront)", "Expires": "Mon, 14 May 2018 18:23:07 GMT", "Connection": "keep-alive", "X-Amz-Cf-Id": "_Q_sioBJ9zkP0pFZztqnQJHLBXl5DWoAnGnb2HBGxJHDEmPX4jH82g==", "Date": "Mon, 14 May 2018 17:23:07 GMT", "Content-Type": "application/json", "Server": "nginx/1.10.2", "Content-Length": "1572", "X-Cache": "Hit from cloudfront", "Age": "1039", "Content-Encoding": "gzip"}}\n',
+        '{"asctime": "2018-05-14 10:40:55 -0700", "levelname": "DEBUG", "name": "pyfortified_requests", "version": "0.3.3", "message": "REST Countries: Cookie Payload", "cookie_payload": {}, "request_label": "REST Countries"}\n',
+        '{"asctime": "2018-05-14 10:40:55 -0700", "levelname": "DEBUG", "name": "pyfortified_requests", "version": "0.3.3", "message": "REST Countries: Try Send Request: Is Return Response: Checking", "request_url": "http://api.population.io/1.0/countries"}\n',
+        '{"asctime": "2018-05-14 10:40:55 -0700", "levelname": "DEBUG", "name": "pyfortified_requests", "version": "0.3.3", "message": "REST Countries: Try Send Request: Is Return Response: Valid", "request_url": "http://api.population.io/1.0/countries"}\n',
+        '{"asctime": "2018-05-14 10:40:55 -0700", "levelname": "INFO", "name": "pyfortified_requests", "version": "0.3.3", "message": "REST Countries: Finished", "request_time_msecs": 96}\n',
+        '{"asctime": "2018-05-14 10:40:55 -0700", "levelname": "DEBUG", "name": "pyfortified_requests", "version": "0.3.3", "message": "REST Countries: Usage", "Disk:": {"free": "91.54 GB", "percent": 60, "total": "232.62 GB", "path": "/", "used": "140.84 GB"}, "Mem": {"free": "133.17 KB", "cached": "0 B", "total": "16.00 GB", "used": "13.19 GB", "shared": "0 B", "buffers": "0 B"}}\n',
+        '{"asctime": "2018-05-14 10:40:55 -0700", "levelname": "INFO", "name": "pyfortified_requests", "version": "0.3.3", "message": "COMPLETED", "connection": "<requests.adapters.HTTPAdapter object at 0x104096be0>", "cookies": "<RequestsCookieJar[]>", "elapsed": "0:00:00.079948", "encoding": null, "headers": "{\'Allow\': \'OPTIONS, GET\', \'Cache-Control\': \'max-age=3600\', \'Content-Length\': \'1572\', \'Vary\': \'Accept\', \'Age\': \'1039\', \'Connection\': \'keep-alive\', \'X-Cache\': \'Hit from cloudfront\', \'Content-Type\': \'application/json\', \'Server\': \'nginx/1.10.2\', \'Via\': \'1.1 7bfcc2251021d9dc94a87ff179d69731.cloudfront.net (CloudFront)\', \'Expires\': \'Mon, 14 May 2018 18:23:07 GMT\', \'Date\': \'Mon, 14 May 2018 17:23:07 GMT\', \'X-Amz-Cf-Id\': \'_Q_sioBJ9zkP0pFZztqnQJHLBXl5DWoAnGnb2HBGxJHDEmPX4jH82g==\', \'Content-Encoding\': \'gzip\'}", "history": [], "raw": "<urllib3.response.HTTPResponse object at 0x1040a86d8>", "reason": "OK", "request": "<PreparedRequest [GET]>", "status_code": 200, "url": "http://api.population.io/1.0/countries"}\n',
     ]
     'DEBUG'
-    [
-        {
-            'alpha2Code': 'AF',
-            'alpha3Code': 'AFG',
-            'altSpellings': ['AF', 'Afġānistān'],
-            'area': 652230.0,
-            'borders': ['IRN', 'PAK', 'TKM', 'UZB', 'TJK', 'CHN'],
-            'callingCodes': ['93'],
-            'capital': 'Kabul',
-            'cioc': 'AFG',
-            'currencies': [
-                {'code': 'AFN', 'name': 'Afghan afghani', 'symbol': '؋'},
-            ],
-            'demonym': 'Afghan',
-            'flag': 'https://restcountries.eu/data/afg.svg',
-            'gini': 27.8,
-            'languages': [
-                {
-                    'iso639_1': 'ps',
-                    'iso639_2': 'pus',
-                    'name': 'Pashto',
-                    'nativeName': 'پښتو',
-                },
-                {
-                    'iso639_1': 'uz',
-                    'iso639_2': 'uzb',
-                    'name': 'Uzbek',
-                    'nativeName': 'O\u02bbzbek',
-                },
-                {
-                    'iso639_1': 'tk',
-                    'iso639_2': 'tuk',
-                    'name': 'Turkmen',
-                    'nativeName': 'Türkmen',
-                },
-            ],
-            'latlng': [33.0, 65.0],
-            'name': 'Afghanistan',
-            'nativeName': 'افغانستان',
-            'numericCode': '004',
-            'population': 27657145,
-            'region': 'Asia',
-            'regionalBlocs': [
-                {
-                    'acronym': 'SAARC',
-                    'name': 'South Asian Association for Regional Cooperation',
-                    'otherAcronyms': [],
-                    'otherNames': [],
-                },
-            ],
-            'subregion': 'Southern Asia',
-            'timezones': ['UTC+04:30'],
-            'topLevelDomain': ['.af'],
-            'translations': {
-                'br': 'Afeganistão',
-                'de': 'Afghanistan',
-                'es': 'Afganistán',
-                'fa': 'افغانستان',
-                'fr': 'Afghanistan',
-                'hr': 'Afganistan',
-                'it': 'Afghanistan',
-                'ja': 'アフガニスタン',
-                'nl': 'Afghanistan',
-                'pt': 'Afeganistão',
-            },
-        },
-
+    {
+        'countries': [
+            'Afghanistan',
+            'AFRICA',
+            'Albania',
+            'Algeria',
+            'Angola',
+            'Antigua and Barbuda',
+            'Arab Rep of Egypt',
+            'Argentina',
+            'Armenia',
+            'Aruba',
+            'ASIA',
+            'Australia',
+            'Australia/New Zealand',
+            'Austria',
+            'Azerbaijan',
+            'The Bahamas',
+            ***
+            'Uganda',
+            'Ukraine',
+            'United Arab Emirates',
+            'United Kingdom',
+            'United States',
+            'US Virgin Islands',
+            'Uruguay',
+            'Uzbekistan',
+            'Vanuatu',
+            'Vietnam',
+            'Western Africa',
+            'Western Asia',
+            'Western Europe',
+            'Western Sahara',
+            'World',
+            'Zambia',
+            'Zimbabwe',
+        ],
+    }
 
 Classes
 -------
@@ -224,7 +173,7 @@ Packages
 
 - **beautifulsoup4**: https://pypi.python.org/pypi/beautifulsoup4
 - **deepdiff**: https://pypi.python.org/pypi/deepdiff
-- **logging-fortified**: ***TBD***
+- **pyfortified-logging**: https://pypi.org/project/pyfortified-logging/
 - **pyhttpstatus-utils**: https://pypi.python.org/pypi/pyhttpstatus-utils
 - **requests**: https://pypi.python.org/pypi/requests
 - **safe-cast**: https://pypi.python.org/pypi/safe-cast

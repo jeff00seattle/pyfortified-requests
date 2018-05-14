@@ -3,7 +3,7 @@
 # @namespace pyfortified_requests
 
 __title__ = 'pyfortified-requests'
-__version__ = '0.3.2'
+__version__ = '0.3.4'
 __version_info__ = tuple(__version__.split('.'))
 
 __python_required_version__ = (3, 0)

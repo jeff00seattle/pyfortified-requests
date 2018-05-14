@@ -235,7 +235,7 @@ list-package: site-packages
 	@echo "======================================================"
 	ls -al $(PYTHON3_SITE_PACKAGES)/$(PACKAGE_PREFIX)*
 
-run-examples: local-build
+run-example-countries: local-build
 	@echo "======================================================"
 	@echo run-examples $(PACKAGE)
 	@echo "======================================================"
@@ -243,8 +243,16 @@ run-examples: local-build
 	@echo "======================================================"
 	@$(PYTHON3) examples/example_requests_countries.py
 	@echo "======================================================"
-	@$(PYTHON3) examples/example_requests_population.py
+
+run-example-populations: local-build
 	@echo "======================================================"
+	@echo run-examples $(PACKAGE)
+	@echo "======================================================"
+	rm -fR _tmp/*.json
+	@echo "======================================================"
+	@$(PYTHON3) examples/example_requests_populations.py
+	@echo "======================================================"
+
 
 run-examples-35: local-build-35
 	@echo "======================================================"
