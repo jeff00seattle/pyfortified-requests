@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# @namespace requests_fortified
+# @namespace pyfortified_requests
 
 import os
 import psutil
-from requests_fortified.support.utils import bytes_to_human
-from requests_fortified.support.constants import IRONIO_PARTITION
+from pyfortified_requests.support.utils import bytes_to_human
+from pyfortified_requests.support.constants import IRONIO_PARTITION
 
 
 def mem_usage():

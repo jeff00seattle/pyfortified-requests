@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# @namespace requests_fortified
+# @namespace pyfortified_requests
 
 from pyhttpstatus_utils import HTTP_STATUS_DESC_DICT
 from pyhttpstatus_utils import HTTP_STATUS_PHRASE_DICT

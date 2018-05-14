@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# @namespace requests_fortified
+# @namespace pyfortified_requests
 
-from requests_fortified.errors.error_codes import RequestsFortifiedErrorCodes
-from requests_fortified.exceptions.base import (RequestsFortifiedBaseError)
+from pyfortified_requests.errors.error_codes import RequestsFortifiedErrorCodes
+from pyfortified_requests.exceptions.base import (RequestsFortifiedBaseError)
 
 
 class RequestsFortifiedError(RequestsFortifiedBaseError):

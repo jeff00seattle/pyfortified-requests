@@ -5,10 +5,11 @@
 
 .PHONY: clean version build dist local-dev yapf pyflakes pylint
 
-PACKAGE := requests-fortified
-PACKAGE_PREFIX := requests_fortified
+PACKAGE := pyfortified-requests
+PACKAGE_PREFIX := pyfortified_requests
 
 PYTHON3 := $(shell which python3)
+PYTHON35 := $(shell which python3.5)
 
 PY_MODULES := pip setuptools pylint flake8 pprintpp pep8 requests six sphinx wheel python-dateutil
 
@@ -112,14 +113,24 @@ fresh: dist dist-update install
 register:
 	$(PYTHON3) $(SETUP_FILE) register
 
-local-dev: requirements remove-package
+local-build: install-requirements remove-package
 	@echo "======================================================"
-	@echo local-dev $(PACKAGE)
+	@echo local-build $(PACKAGE)
 	@echo "======================================================"
 	$(PYTHON3) -m pip install --upgrade freeze
 	$(PYTHON3) -m pip install --upgrade .
 	@echo "======================================================"
 	$(PYTHON3) -m pip freeze | grep $(PACKAGE)
+	@echo "======================================================"
+
+local-build-35: install-requirements-35 remove-package
+	@echo "======================================================"
+	@echo local-build $(PACKAGE)
+	@echo "======================================================"
+	$(PYTHON35) -m pip install --upgrade freeze
+	$(PYTHON35) -m pip install --upgrade .
+	@echo "======================================================"
+	$(PYTHON35) -m pip freeze | grep $(PACKAGE)
 	@echo "======================================================"
 
 local-dev-no-install:
@@ -162,45 +173,51 @@ build: clean
 	ls -al ./dist/$(PACKAGE_PREFIX_WILDCARD)
 	@echo "======================================================"
 
-requirements: $(REQ_FILE)
+install-requirements: $(REQ_FILE)
 	@echo "======================================================"
-	@echo requirements
+	@echo install-requirements
 	@echo "======================================================"
 	$(PYTHON3) -m pip install --upgrade -r $(REQ_FILE)
 
-tools-requirements: $(TOOLS_REQ_FILE)
+install-requirements-35: $(REQ_FILE)
+	@echo "======================================================"
+	@echo install-requirements-35
+	@echo "======================================================"
+	$(PYTHON35) -m pip install --upgrade -r $(REQ_FILE)
+
+install-tools-requirements: $(TOOLS_REQ_FILE)
 	@echo "======================================================"
 	@echo tools-requirements
 	@echo "======================================================"
 	$(PYTHON3) -m pip install --upgrade -r $(TOOLS_REQ_FILE)
 
-pep8: tools-requirements
+pep8: install-tools-requirements
 	@echo "======================================================"
 	@echo pep8 $(PACKAGE)
 	@echo "======================================================"
 	$(PYTHON3) -m pep8 --config .pep8 $(PACKAGE_ALL_FILES)
 
-pyflakes: tools-requirements
+pyflakes: install-tools-requirements
 	@echo "======================================================"
 	@echo pyflakes $(PACKAGE)
 	@echo "======================================================"
 	$(PYTHON3) -m pip install --upgrade pyflakes
 	$(PYTHON3) -m pyflakes $(PYFLAKES_ALL_FILES)
 
-pylint: tools-requirements
+pylint: install-tools-requirements
 	@echo "======================================================"
 	@echo pylint $(PACKAGE)
 	@echo "======================================================"
 	$(PYTHON3) -m pip install --upgrade pylint
 	$(PYTHON3) -m pylint --rcfile .pylintrc $(PACKAGE_ALL_FILES) --disable=C0330,F0401,E0611,E0602,R0903,C0103,E1121,R0913,R0902,R0914,R0912,W1202,R0915,C0302 | more -30
 
-yapf: tools-requirements
+yapf: install-tools-requirements
 	@echo "======================================================"
 	@echo yapf $(PACKAGE)
 	@echo "======================================================"
 	$(PYTHON3) -m yapf --style .style.yapf --in-place $(PACKAGE_ALL_FILES)
 
-lint: tools-requirements
+lint: install-tools-requirements
 	@echo "======================================================"
 	@echo lint $(PACKAGE)
 	@echo "======================================================"
@@ -218,7 +235,7 @@ list-package: site-packages
 	@echo "======================================================"
 	ls -al $(PYTHON3_SITE_PACKAGES)/$(PACKAGE_PREFIX)*
 
-run-examples: requirements
+run-example-countries: local-build
 	@echo "======================================================"
 	@echo run-examples $(PACKAGE)
 	@echo "======================================================"
@@ -226,7 +243,26 @@ run-examples: requirements
 	@echo "======================================================"
 	@$(PYTHON3) examples/example_requests_countries.py
 	@echo "======================================================"
-	@$(PYTHON3) examples/example_requests_countries_stdout_color.py
+
+run-example-populations: local-build
+	@echo "======================================================"
+	@echo run-examples $(PACKAGE)
+	@echo "======================================================"
+	rm -fR _tmp/*.json
+	@echo "======================================================"
+	@$(PYTHON3) examples/example_requests_populations.py
+	@echo "======================================================"
+
+
+run-examples-35: local-build-35
+	@echo "======================================================"
+	@echo run-examples-35 $(PACKAGE)
+	@echo "======================================================"
+	rm -fR _tmp/*.json
+	@echo "======================================================"
+	@$(PYTHON35) examples/example_requests_countries.py
+	@echo "======================================================"
+	@$(PYTHON35) examples/example_requests_countries_stdout_color.py
 	@echo "======================================================"
 
 pypitest-register:

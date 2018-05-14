@@ -2,7 +2,5 @@ include setup.py
 include README.rst
 include LICENSE
 include AUTHORS.rst
-include HISTORY.rst
 include requirements.txt
-recursive-include images *.png
-recursive-include requests_fortified *.py
+recursive-include pyfortified_requests *.py

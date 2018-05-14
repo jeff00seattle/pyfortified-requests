@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# @namespace requests_fortified
+# @namespace pyfortified_requests
 
 import sys
 import requests
-from requests_fortified import (__version__, __title__)
+from pyfortified_requests import (__version__, __title__)
 from pyhttpstatus_utils import (HttpStatusCode)
 
 __all__ = [HttpStatusCode]

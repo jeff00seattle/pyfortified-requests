@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# @namespace requests_fortified
+# @namespace pyfortified_requests
 
 import six
-from requests_fortified import (__title__)
-from requests_fortified.errors import (RequestsFortifiedErrorCodes)
-from requests_fortified.errors import error_desc as requests_fortified_error_desc
-from requests_fortified.errors import error_name as requests_fortified_error_name
+from pyfortified_requests import (__title__)
+from pyfortified_requests.errors import (RequestsFortifiedErrorCodes)
+from pyfortified_requests.errors import error_desc as requests_fortified_error_desc
+from pyfortified_requests.errors import error_name as requests_fortified_error_name
 from safe_cast import safe_str
 
 # from pprintpp import pprint
@@ -14,7 +14,7 @@ from safe_cast import safe_str
 
 # @brief Requests Fortified Base Exception
 #
-# @namespace requests_fortified.RequestsFortifiedBaseError
+# @namespace pyfortified_requests.RequestsFortifiedBaseError
 class RequestsFortifiedBaseError(Exception):
     """Requests Fortified Base Exception
     """
