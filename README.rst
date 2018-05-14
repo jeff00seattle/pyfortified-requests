@@ -34,11 +34,6 @@ Badges
 .. list-table::
     :stub-columns: 1
 
-    * - info
-      - |license|
-    * - package
-      - |version| |supported-versions|
-
 
 .. |license| image:: https://img.shields.io/badge/License-MIT-yellow.svg
     :alt: License Status
