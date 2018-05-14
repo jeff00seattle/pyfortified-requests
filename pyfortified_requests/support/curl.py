@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# @namespace requests_fortified
+# @namespace pyfortified_requests
 
 import re
 import ujson as json
@@ -10,7 +10,7 @@ from base64 import b64encode
 import requests
 import shlex
 import argparse
-from requests_fortified.support.utils import urlencode_dict
+from pyfortified_requests.support.utils import urlencode_dict
 
 # from pprintpp import pprint
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# @namespace requests_fortified
+# @namespace pyfortified_requests
 
 import copy
 import datetime as dt
@@ -27,23 +27,23 @@ from urllib3.exceptions import (
     InsecureRequestWarning,
 )
 
-from requests_fortified import (
+from pyfortified_requests import (
     __python_required_version__,
     __version__,
 )
-from requests_fortified.errors import (
+from pyfortified_requests.errors import (
     get_exception_message,
     print_traceback,
     RequestsFortifiedErrorCodes,
 )
-from requests_fortified.exceptions import (
+from pyfortified_requests.exceptions import (
     RequestsFortifiedBaseError,
     RequestsFortifiedClientError,
     RequestsFortifiedServiceError,
     RequestsFortifiedModuleError,
     RequestsFortifiedValueError,
 )
-from requests_fortified.support import (
+from pyfortified_requests.support import (
     REQUEST_RETRY_EXCPS,
     REQUEST_RETRY_HTTP_STATUS_CODES,
     RequestsSessionClient,
@@ -66,7 +66,7 @@ python_check_version(__python_required_version__)
 
 # @brief Request with retry class
 #
-# @namespace requests_fortified.RequestsFortified
+# @namespace pyfortified_requests.RequestsFortified
 class RequestsFortified(object):
     """Requests with retry class
     """

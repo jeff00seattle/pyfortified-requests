@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# @namespace requests_fortified
+# @namespace pyfortified_requests
 
 import ujson as json
 import logging
@@ -15,17 +15,17 @@ from pyhttpstatus_utils import (
     is_http_status_successful,
 )
 
-from requests_fortified import (
+from pyfortified_requests import (
     __python_required_version__,
 )
-from requests_fortified.errors import (
+from pyfortified_requests.errors import (
     get_exception_message,
     RequestsFortifiedErrorCodes,
 )
-from requests_fortified.exceptions import (
+from pyfortified_requests.exceptions import (
     RequestsFortifiedModuleError,
 )
-from requests_fortified.support.utils import (
+from pyfortified_requests.support.utils import (
     bytes_to_human,
     base_class_name,
     python_check_version,

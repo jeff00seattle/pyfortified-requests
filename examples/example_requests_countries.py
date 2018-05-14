@@ -5,10 +5,10 @@
 import logging
 
 from pprintpp import pprint
-from requests_fortified import (
+from pyfortified_requests import (
     RequestsFortifiedDownload,
 )
-from requests_fortified.support import (
+from pyfortified_requests.support import (
     HEADER_CONTENT_TYPE_APP_JSON
 )
 from logging_fortified import (
@@ -16,8 +16,9 @@ from logging_fortified import (
     LoggingOutput
 )
 
+# http://api.population.io/#!/countries/listCountries
 URL_REST_COUNTRIES = \
-    'https://restcountries.eu/rest/v2/all'
+    'http://api.population.io/1.0/countries'
 
 request_download = RequestsFortifiedDownload(
     logger_level=logging.DEBUG,

@@ -1,24 +1,24 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# @namespace requests_fortified
+# @namespace pyfortified_requests
 
 import logging
 from logging_fortified import (LoggingFormat, LoggingOutput)
 
-from requests_fortified import (
+from pyfortified_requests import (
     __python_required_version__,
     RequestsFortified,
 )
-from requests_fortified.errors import (
+from pyfortified_requests.errors import (
     get_exception_message,
     print_traceback,
     RequestsFortifiedErrorCodes,
 )
-from requests_fortified.exceptions.custom import (
+from pyfortified_requests.exceptions.custom import (
     RequestsFortifiedBaseError,
     RequestsFortifiedModuleError,
 )
-from requests_fortified.support import (
+from pyfortified_requests.support import (
     base_class_name,
     mv_request_retry_excps_func,
     python_check_version,

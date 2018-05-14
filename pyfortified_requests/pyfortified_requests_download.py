@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# @namespace requests_fortified
+# @namespace pyfortified_requests
 
 import logging
 import csv
@@ -17,12 +17,12 @@ import requests
 from logging_fortified import (LoggingFormat, LoggingOutput)
 from pprintpp import pprint
 
-from requests_fortified import (__python_required_version__)
-from requests_fortified.errors import (get_exception_message, RequestsFortifiedErrorCodes)
-from requests_fortified.exceptions.custom import (
+from pyfortified_requests import (__python_required_version__)
+from pyfortified_requests.errors import (get_exception_message, RequestsFortifiedErrorCodes)
+from pyfortified_requests.exceptions.custom import (
     RequestsFortifiedModuleError,
 )
-from requests_fortified.support import (
+from pyfortified_requests.support import (
     base_class_name,
     bytes_to_human,
     csv_skip_last_row,
@@ -33,8 +33,8 @@ from requests_fortified.support import (
     remove_bom,
     validate_response,
 )
-from requests_fortified.support.curl import command_line_request_curl
-from .requests_fortified import (RequestsFortified)
+from pyfortified_requests.support.curl import command_line_request_curl
+from .pyfortified_requests import (RequestsFortified)
 from safe_cast import safe_dict
 
 log = logging.getLogger(__name__)

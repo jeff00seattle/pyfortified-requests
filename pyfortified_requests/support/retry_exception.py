@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# @namespace requests_fortified
+# @namespace pyfortified_requests
 
 import logging
 import requests
 
-from requests_fortified import (
+from pyfortified_requests import (
     __python_required_version__,
 )
-from requests_fortified.errors import (
+from pyfortified_requests.errors import (
     get_exception_message,
     RequestsFortifiedErrorCodes,
 )
-from requests_fortified.exceptions.custom import (
+from pyfortified_requests.exceptions.custom import (
     RequestsFortifiedBaseError,
 )
-from requests_fortified.support.utils import (
+from pyfortified_requests.support.utils import (
     base_class_name,
     python_check_version,
 )

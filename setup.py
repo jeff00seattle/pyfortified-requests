@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-#  @namespace requests-fortified
+#  @namespace pyfortified-requests
 #
 
 from __future__ import with_statement
@@ -24,16 +24,14 @@ REQUIREMENTS = [
 ]
 
 PACKAGES = [
-    'requests_fortified',
-    'requests_fortified.errors',
-    'requests_fortified.exceptions',
-    'requests_fortified.support',
-    'requests_fortified.support.response'
+    'pyfortified_requests',
+    'pyfortified_requests.errors',
+    'pyfortified_requests.exceptions',
+    'pyfortified_requests.support',
+    'pyfortified_requests.support.response'
 ]
 
-TEST_REQUIREMENTS = ['pytest>=3.2.5', 'pytest-cov']
-
-with open('requests_fortified/__init__.py', 'r') as fd:
+with open('pyfortified_requests/__init__.py', 'r') as fd:
     version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]', fd.read(), re.MULTILINE).group(1)
 
 if not version:
@@ -48,39 +46,37 @@ CLASSIFIERS = [
     #   3 - Alpha
     #   4 - Beta
     #   5 - Production/Stable
-    'Development Status :: 5 - Production/Stable',
+    'Development Status :: 3 - Alpha',
     'Intended Audience :: Developers',
     'Natural Language :: English',
     'License :: OSI Approved :: MIT License',
+    'Operating System :: OS Independent',
+    'Natural Language :: English',
     'Programming Language :: Python',
-    'Programming Language :: Python :: 3.3',
+    'Programming Language :: Python :: 3',
     'Programming Language :: Python :: 3.4',
     'Programming Language :: Python :: 3.5',
     'Programming Language :: Python :: 3.6',
-    'Programming Language :: Python :: Implementation :: PyPy'
+    'Topic :: Software Development :: Libraries :: Python Modules'
 ]
 
 with codecs.open('README.rst', 'r', 'utf-8') as f:
     readme = f.read()
 
 setup(
-    name='requests-fortified',
+    name='pyfortified-requests',
     version=version,
-    description="Extension of Python HTTP `requests` with verbose logging using `logging-fortified`.",
+    description="Extension to Python `requests` functionality.",
     long_description=readme,
-    url='https://github.com/jeff00seattle/requests-fortified',
-    download_url='https://github.com/jeff00seattle/requests-fortified/archive/v{0}.tar.gz'.format(version),
-    keywords="requests fortified",
+    url='https://github.com/jeff00seattle/pyfortified-requests',
+    download_url='https://github.com/jeff00seattle/pyfortified-requests/archive/v{0}.tar.gz'.format(version),
+    keywords="pyfortified requests",
     license='MIT License',
     zip_safe=False,
     include_package_data=True,
     install_requires=REQUIREMENTS,
     packages=PACKAGES,
     package_data={'': ['LICENSE']},
-    package_dir={'requests-fortified': 'requests-fortified'},
-    setup_requires=[
-        'pytest-runner',
-    ],
-    tests_require=TEST_REQUIREMENTS,
+    package_dir={'pyfortified-requests': 'pyfortified-requests'},
     classifiers=CLASSIFIERS
 )

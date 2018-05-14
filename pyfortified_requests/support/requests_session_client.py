@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# @namespace requests_fortified
+# @namespace pyfortified_requests
 
 import logging
 import requests
 from requests.adapters import (HTTPAdapter, DEFAULT_POOLSIZE)
 from urllib3.util.retry import Retry
-from requests_fortified.support import (REQUEST_RETRY_HTTP_STATUS_CODES)
-from requests_fortified.errors import (get_exception_message)
+from pyfortified_requests.support import (REQUEST_RETRY_HTTP_STATUS_CODES)
+from pyfortified_requests.errors import (get_exception_message)
 
 log = logging.getLogger(__name__)
 
