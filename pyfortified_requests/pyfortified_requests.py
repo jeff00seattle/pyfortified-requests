@@ -11,7 +11,7 @@ import time
 from functools import partial
 
 import requests
-from logging_fortified import (
+from pyfortified_logging import (
     get_logger,
     LoggingFormat,
     LoggingOutput

@@ -3,7 +3,7 @@
 # @namespace pyfortified_requests
 
 import logging
-from logging_fortified import (LoggingFormat, LoggingOutput)
+from pyfortified_logging import (LoggingFormat, LoggingOutput)
 
 from pyfortified_requests import (
     __python_required_version__,
