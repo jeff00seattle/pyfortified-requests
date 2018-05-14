@@ -4,7 +4,7 @@ pyfortified-requests
 --------------------
 
 Extension of Python HTTP `requests <https://pypi.python.org/pypi/requests>`_ with verbose
-logging using `logging-fortified <https://pypi.python.org/pypi/logging-fortified>`_, and robust handling for
+logging using `pyfortified-logging <https://pypi.org/project/pyfortified-logging>`_, and robust handling for
 Downloading files containing JSON, CSV, and XML data formats and Streaming.
 
 Important Note
@@ -173,7 +173,7 @@ Packages
 
 - **beautifulsoup4**: https://pypi.python.org/pypi/beautifulsoup4
 - **deepdiff**: https://pypi.python.org/pypi/deepdiff
-- **pyfortified-logging**: https://pypi.org/project/pyfortified-logging/
+- **pyfortified-logging**: https://pypi.org/project/pyfortified-logging
 - **pyhttpstatus-utils**: https://pypi.python.org/pypi/pyhttpstatus-utils
 - **requests**: https://pypi.python.org/pypi/requests
 - **safe-cast**: https://pypi.python.org/pypi/safe-cast
